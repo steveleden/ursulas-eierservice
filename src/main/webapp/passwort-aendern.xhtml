@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	Benutzer
+</h:head> 
+<body> 
+	<ui:composition template="/WEB-INF/template/BasicTemplate.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+				<fieldset class="fieldset" >
+				<legend>Passwort aendern</legend>
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Passwort:" />
+					<h:inputSecret id="pw_alt"
+								   value="#{passwortAendernController.pw}"
+								   redisplay="false"
+								   required="true"
+								   requiredMessage="Passwort eingeben"/>
+					<h:messages for="pw_alt" styleClass="messages" layout="table"/>
+					<br /> <h:panelGroup></h:panelGroup>  <h:panelGroup></h:panelGroup>
+					<h:outputLabel value="Neues Passwort:" />
+					<h:inputSecret id="pw_neu1"
+								   value="#{passwortAendernController.pwNeu1}" 
+								   redisplay="false"
+								   required="true"
+								   requiredMessage="Neues Passwort eingeben"/>
+					<h:messages for="pw_neu1" styleClass="messages" layout="table"/>
+					<h:outputLabel value="Passwort wiederholen:" />
+					<h:inputSecret id="pw_neu2"
+								   value="#{passwortAendernController.pwNeu2}"
+								   redisplay="false"
+								   required="true" 
+								   requiredMessage="Neues Passwort eingeben"/>
+					<h:messages for="pw_neu2" styleClass="messages" layout="table"/>
+				</h:panelGrid>
+				</fieldset>
+				<h:commandButton action="#{passwortAendernController.passwortAbbrechen()}" value="Abbrechen" immediate="true"
+						 			 styleClass="normalButton"/>
+				<h:commandButton action="#{passwortAendernController.passwortSpeichern()}" value="Passwort aendern" 
+						 				 styleClass="normalButton"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body> 
+</html>

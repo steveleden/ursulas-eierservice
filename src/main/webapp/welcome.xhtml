@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head> 
+</h:head> 
+<body> 
+
+	<ui:composition template="/WEB-INF/template/BasicTemplate.xhtml">
+	
+		<ui:define name="content" >
+		
+			<div style="background-image: url('images/Huehner6.jpg');
+			            height: 400px;
+			            width: 100%;
+			            padding: 40px;
+			            margin: 20px 0px 20px 0px;
+			            -moz-box-shadow: 0px 0px 5px 5px #535763;
+						-webkit-box-shadow: 0px 0px 5px 5px #535763;
+						box-shadow: 0px 0px 5px 5px #535763;				            
+			            ">
+			
+				<h:form >
+					<h:commandButton value="6 Eier auf naechste Woche bestellen" action="#{bestellungVerwaltungController.bestellung6Eier()}" styleClass="bestellButton"/>
+					<br />
+					<h:commandButton value="10 Eier auf naechste Woche bestellen" action="#{bestellungVerwaltungController.bestellung10Eier()}" styleClass="bestellButton"/>
+					<br />
+					<h:commandButton value="20 Eier auf naechste Woche bestellen" action="#{bestellungVerwaltungController.bestellung20Eier()}"  styleClass="bestellButton"/>
+					<br />
+					<h:commandButton value="Individuelle Bestellung" action="#{bestellungVerwaltungController.bestellungIndividuell()}"  styleClass="bestellButton"/>
+				</h:form>
+	
+			</div>
+		</ui:define>
+		
+	</ui:composition>
+</body> 
+</html>

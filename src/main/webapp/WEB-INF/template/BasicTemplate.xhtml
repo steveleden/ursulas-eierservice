@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head >
+	<link href="images/eggicon6464.ico" rel="shortcut icon" />
+	<script src="scripts/jquery-1.10.2.min.js"></script>
+	<script src="scripts/jquery-ui.min.js"></script>
+	<link rel="stylesheet"  type="text/css" href="resources/css/smoothness/jquery-ui.css" media="all" />
+	<script src="scripts/datepicker_de.js" type="text/javascript"></script>	
+	<script src="scripts/test.js" type="text/javascript"></script>	
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="buttons.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="datagrid.css"></h:outputStylesheet>
+	<f:metadata>
+	    <f:event type="preRenderView" listener="#{benutzerBean.checkAuthorisiert()}" />
+	</f:metadata> 	<title><ui:insert name="title">Ursula's Eierservice</ui:insert></title>
+</h:head>
+
+<h:body 
+			  >
+	
+	<div id="top" >
+	    <ui:insert name="top" >
+	    	<h:panelGrid columns="3">
+				<h:graphicImage value="/images/eier6464.png" style="margin-right: 130px"/>
+				<h:outputText value="Ursula's Eierservice" />
+				<h:graphicImage value="/images/eier6464.png" style="margin-left: 130px"/>
+			</h:panelGrid>
+	    </ui:insert>
+	</div>
+	
+	<div id="left" >
+		<c:choose>
+			<c:when test="#{kundenVerwaltungController.dialogModus=='KUNDE_ERFASSEN'
+			                or kundenVerwaltungController.dialogModus=='KUNDE_MUTIEREN'}">
+
+			 	<ui:insert name="left">
+			 	
+			 		<h:form>
+				 		<h:panelGrid id="leftLanePanelGrid" >
+		
+							<h:commandButton 	styleClass="mainButton"
+												value="Bestellen"
+												action="#{bestellungVerwaltungController.startBestellungErfassen()}" 
+									 			disabled="true"/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Offene Bestellungen"
+												rendered="#{!benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBestellungenKundeOffen()}" 
+									 			disabled="true"/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Benutzerkonto"
+												rendered="#{!benutzerBean.istAdministrator}"
+												action="#{kundenVerwaltungController.startBenutzerKontoMutieren()}" 
+									 			disabled="true"/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Bestaetigen"
+												rendered="#{benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBestellungBestaetigen()}" 
+									 			disabled="true"/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Liefern"
+												rendered="#{benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBestellungLiefern()}" 
+									 			disabled="true"/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Offene Zahlungen"
+												rendered="#{benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBezahlungOffen()}" 
+									 			disabled="true"/>
+			 				<h:commandButton	styleClass="mainButton"
+			 									value="Benutzerverwaltung"
+			 									action="show-benutzerliste.xhtml"
+			 									rendered="#{benutzerBean.istAdministrator}"
+			 									disabled="true"/>									 
+							<h:commandButton 	styleClass="mainButton"
+												value="Kundenverwaltung" 
+												action="show-kundenliste.xhtml"
+												rendered="#{benutzerBean.istAdministrator}"
+												disabled="true"/>
+							<h:commandButton 	styleClass="mainButton"
+											 	value="Logout" 
+											 	action="#{authController.logout()}"
+											 	disabled="true"
+											 />
+
+						</h:panelGrid>
+					</h:form>	
+					<fieldset id="fieldLeftBottom" ></fieldset>  
+					<fieldset id="fieldLeftBottom2" ></fieldset>  
+			 	</ui:insert>
+
+
+			
+		 	</c:when>
+		 	<c:otherwise>
+		 	
+			 	<ui:insert name="left">
+			 	
+			 		<h:form>
+				 		<h:panelGrid id="leftLanePanelGrid" >
+		
+							<h:commandButton 	styleClass="mainButton"
+												value="Bestellen"
+												action="#{bestellungVerwaltungController.startBestellungErfassen()}" 
+									 			/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Offene Bestellungen"
+												rendered="#{!benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBestellungenKundeOffen()}" 
+									 			/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Benutzerkonto"
+												rendered="#{!benutzerBean.istAdministrator}"
+												action="#{kundenVerwaltungController.startBenutzerKontoMutieren()}" 
+									 			/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Bestaetigen"
+												rendered="#{benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBestellungBestaetigen()}" 
+									 			/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Liefern"
+												rendered="#{benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBestellungLiefern()}" 
+									 			/>
+							<h:commandButton 	styleClass="mainButton"
+												value="Offene Zahlungen"
+												rendered="#{benutzerBean.istAdministrator}"
+												action="#{bestellungVerwaltungController.startBezahlungOffen()}" 
+									 			/>
+			 				<h:commandButton	styleClass="mainButton"
+			 									value="Benutzerverwaltung"
+			 									action="#{benutzerVerwaltungController.startBenutzerVerwaltung()}"
+			 									rendered="#{benutzerBean.istAdministrator}"/>									 
+							<h:commandButton 	styleClass="mainButton"
+												value="Kundenverwaltung" 
+												action="#{kundenVerwaltungController.startKundenVerwaltung()}"
+												rendered="#{benutzerBean.istAdministrator}"/>
+							<h:commandButton styleClass="mainButton"
+											 value="Logout" 
+											 action="#{authController.logout()}"
+											 />
+						</h:panelGrid>
+					</h:form>	
+					<fieldset id="fieldLeftBottom" ></fieldset>  
+					<fieldset id="fieldLeftBottom2" ></fieldset>  
+			 	</ui:insert>
+		 	
+		 	</c:otherwise>
+		 	</c:choose>
+	 </div>
+	
+	<div id="content" 
+				  >
+	      <ui:insert name="content">Content</ui:insert>
+	</div>
+
+	
+	<div id="bottom"  >
+	 	<ui:insert name="footer">desinged by s.leden</ui:insert>
+	</div>
+	
+	<div id="belowBottom"  >
+	 	<ui:insert name="belowBottom"></ui:insert>
+	</div>
+	
+	</h:body>
+
+</html>
