@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$(function() {
 		$( ".datepickerInputPlus4" ).datepicker( {
 			dateFormat: 'D, dd.mm.yy',
-			minDate: 4,
+			minDate: 2,
 
 	});
 		
