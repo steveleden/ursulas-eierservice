@@ -82,6 +82,10 @@
 												action="show-kundenliste.xhtml"
 												rendered="#{benutzerBean.istAdministrator}"
 												disabled="true"/>
+							<h:button 			styleClass="mainButton"
+												value="Kontakt" 
+												outcome="kontakt.xhtml"
+												disabled="true"/>
 							<h:commandButton 	styleClass="mainButton"
 											 	value="Logout" 
 											 	action="#{authController.logout()}"
@@ -136,11 +140,15 @@
 			 				<h:commandButton	styleClass="mainButton"
 			 									value="Benutzerverwaltung"
 			 									action="#{benutzerVerwaltungController.startBenutzerVerwaltung()}"
-			 									rendered="#{benutzerBean.istAdministrator}"/>									 
+			 									rendered="#{benutzerBean.istAdministrator}"/>								 
 							<h:commandButton 	styleClass="mainButton"
 												value="Kundenverwaltung" 
 												action="#{kundenVerwaltungController.startKundenVerwaltung()}"
 												rendered="#{benutzerBean.istAdministrator}"/>
+							<h:button			styleClass="mainButton"									
+												value="Kontakt" 
+												outcome="kontakt.xhtml"
+												/>
 							<h:commandButton styleClass="mainButton"
 											 value="Logout" 
 											 action="#{authController.logout()}"
