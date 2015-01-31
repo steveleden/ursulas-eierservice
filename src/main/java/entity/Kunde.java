@@ -19,9 +19,6 @@ public class Kunde implements Serializable {
 	@Column(unique=true, nullable=false)
 	private int id;
 
-	@Column(length=254)
-	private String email;
-
 	@Column(nullable=false, length=45)
 	private String nachname;
 
@@ -45,14 +42,6 @@ public class Kunde implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getNachname() {
