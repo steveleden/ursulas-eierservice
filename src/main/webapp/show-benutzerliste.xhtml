@@ -29,6 +29,10 @@
 				<f:facet name="header">Rolle</f:facet>
 				#{benutzerItem.rolle}
 			</h:column>
+			<h:column>
+				<f:facet name="header">E-Mail</f:facet>
+				#{benutzerItem.benutzer.email}
+			</h:column>
 			<h:column >
 				<f:facet name="header">Logins</f:facet>
 				#{benutzerItem.benutzer.loginCounter}

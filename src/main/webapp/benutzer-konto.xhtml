@@ -27,11 +27,11 @@
 					<h:inputText value="#{kundeViewBean.kundeView.kunde.vorname}" 
 								 required="true"
 								 requiredMessage="Vornamen eingeben"
-						 		 rendered="#{kundenVerwaltungController.dialogModus=='KUNDE_MUTIEREN'}" />
+						 		 rendered="#{kundenVerwaltungController.dialogModus=='KUNDE_MUTIEREN'}" />						 		 
 					<h:outputLabel value="E-Mail:" />
-					<h:outputText value="#{kundeViewBean.kundeView.kunde.email}"
+					<h:outputText value="#{benutzerViewBean.benutzerView.benutzer.email}"
 						 		 rendered="#{kundenVerwaltungController.dialogModus=='KUNDE_ANZEIGEN'}" />
-					<h:inputText value="#{kundeViewBean.kundeView.kunde.email}"
+					<h:inputText value="#{benutzerViewBean.benutzerView.benutzer.email}"
 						 		 rendered="#{kundenVerwaltungController.dialogModus=='KUNDE_MUTIEREN'}" />
 				</h:panelGrid>
 				</fieldset>

@@ -32,6 +32,10 @@ public class KundenVerwaltungController implements Serializable {
 	@ManagedProperty(value="#{kundeViewBean}")
 	KundeViewBean kundeViewBean;
 
+	/* CDI - Dependency BenutzerViewBean */
+	@ManagedProperty(value="#{benutzerViewBean}")
+	BenutzerViewBean benutzerViewBean;
+
 	/* CDI - Dependency BenutzerBean */
 	@ManagedProperty(value="#{benutzerBean}")
 	BenutzerBean benutzerBean;
@@ -85,6 +89,15 @@ public class KundenVerwaltungController implements Serializable {
 
 	public void setKundeViewBean(KundeViewBean kundeViewBean) {
 		this.kundeViewBean = kundeViewBean;
+	}
+
+	public BenutzerViewBean getBenutzerViewBean() {
+		return benutzerViewBean;
+	}
+
+
+	public void setBenutzerViewBean(BenutzerViewBean benutzerViewBean) {
+		this.benutzerViewBean = benutzerViewBean;
 	}
 
 	public BenutzerBean getBenutzerBean() {
@@ -345,8 +358,17 @@ public class KundenVerwaltungController implements Serializable {
 		    .addMessage(null, new FacesMessage("Fehler beim Lesen des Kunden."));
 			return " ";
 		}
-		
 		this.kundeViewBean.getKundeView().setKunde(k);
+		
+		Benutzer b = benutzerVerwaltung.leseBenutzerByName(benutzerBean.getName());
+		
+		if (b==null) {
+			FacesContext.getCurrentInstance()
+		    .addMessage(null, new FacesMessage("Fehler beim Lesen des Benutzers."));
+			return " ";
+		}
+		this.benutzerViewBean.getBenutzerView().setBenutzer(b);
+		
 		this.dialogModus = DialogModus.KUNDE_ANZEIGEN;
 		return ("benutzer-konto" + "?faces-redirect=true");
 
@@ -365,6 +387,14 @@ public class KundenVerwaltungController implements Serializable {
 		    .addMessage(null, new FacesMessage("Fehler: Geaenderte Kundendaten konnten nicht gespeichert werden."));
 			return " ";
 		}
+		
+		result = benutzerVerwaltung.mutiereBenutzer(this.benutzerViewBean.getBenutzerView().getBenutzer());
+		if (result<0) {
+			FacesContext.getCurrentInstance()
+		    .addMessage(null, new FacesMessage("Fehler: Geaenderte Benutzerdaten konnten nicht gespeichert werden."));
+			return " ";
+		}
+		
 		return startBenutzerKontoMutieren();
 	}
 	

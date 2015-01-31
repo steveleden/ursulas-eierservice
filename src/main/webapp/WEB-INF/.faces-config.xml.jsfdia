@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="40,48,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedIn::#welcome.xhtml" NAME="output"
+    PATH="/welcome.xhtml" TARGET="rules:#welcome.xhtml" TITLE="loggedIn" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#welcome.xhtml" PATH="/welcome.xhtml"
+  SHAPE="160,40,50,105" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#welcome.xhtml:0" NAME="item"
+   PATH="/welcome.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="209,72,216,72,216,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="bestellung-auswahl-kunde::#bestellung-auswahl-kunde.xhtml"
+    NAME="output2" PATH="/bestellung-auswahl-kunde.xhtml"
+    SHAPE="209,88,320,88,320,520,351,520"
+    TARGET="rules:#bestellung-auswahl-kunde.xhtml"
+    TITLE="bestellung-auswahl-kunde" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="bestellung-auswahl-liefern::#bestellung-auswahl-liefern.xhtml"
+    NAME="output3" PATH="/bestellung-auswahl-liefern.xhtml"
+    SHAPE="209,104,280,104,280,728,455,728"
+    TARGET="rules:#bestellung-auswahl-liefern.xhtml"
+    TITLE="bestellung-auswahl-liefern" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="bestellungen-zahlung-offen::#bestellungen-zahlung-offen.xhtml"
+    NAME="output4" PATH="/bestellungen-zahlung-offen.xhtml"
+    SHAPE="209,120,248,120,248,824,455,824"
+    TARGET="rules:#bestellungen-zahlung-offen.xhtml"
+    TITLE="bestellungen-zahlung-offen" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="show-bestellung::#show-bestellung.xhtml"
+    NAME="output1" PATH="/show-bestellung.xhtml"
+    SHAPE="209,136,352,136,352,424,439,424"
+    TARGET="rules:#show-bestellung.xhtml" TITLE="show-bestellung" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#show-benutzer.xhtml"
+  PATH="/show-benutzer.xhtml" SHAPE="704,48,50,73" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#show-benutzer.xhtml:0" NAME="item"
+   PATH="/show-benutzer.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="goto-benutzerliste::#show-benutzerliste.xhtml" NAME="output"
+    PATH="/show-benutzerliste.xhtml"
+    TARGET="rules:#show-benutzerliste.xhtml" TITLE="goto-benutzerliste" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="#show-benutzer::#show-benutzer.xhtml"
+    NAME="output1" PATH="/show-benutzer.xhtml"
+    TARGET="rules:#show-benutzer.xhtml" TITLE="/show-benutzer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output2"
+    PATH="/login.xhtml" SHAPE="753,112,752,112,752,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#show-benutzerliste.xhtml"
+  PATH="/show-benutzerliste.xhtml" SHAPE="424,48,50,73" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#show-benutzerliste.xhtml:0" NAME="item"
+   PATH="/show-benutzerliste.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="473,80,520,80,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="show-benutzer::#show-benutzer.xhtml"
+    NAME="output1" PATH="/show-benutzer.xhtml"
+    TARGET="rules:#show-benutzer.xhtml" TITLE="show-benutzer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="show-kunde::#show-kunde.xhtml"
+    NAME="output2" PATH="/show-kunde.xhtml"
+    TARGET="rules:#show-kunde.xhtml" TITLE="show-kunde" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#show-kundenliste.xhtml"
+  PATH="/show-kundenliste.xhtml" SHAPE="424,176,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#show-kundenliste.xhtml:0" NAME="item"
+   PATH="/show-kundenliste.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="473,208,520,208,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="show-kunde::#show-kunde.xhtml"
+    NAME="output1" PATH="/show-kunde.xhtml"
+    TARGET="rules:#show-kunde.xhtml" TITLE="show-kunde" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#show-kunde.xhtml" PATH="/show-kunde.xhtml"
+  SHAPE="712,168,50,73" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#show-kunde.xhtml:0" NAME="item"
+   PATH="/show-kunde.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="761,200,1000,200,1000,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="back-to-kundenliste::#show-kundenliste.xhtml" NAME="output1"
+    PATH="/show-kundenliste.xhtml"
+    TARGET="rules:#show-kundenliste.xhtml" TITLE="back-to-kundenliste" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="show-benutzerliste::#show-benutzerliste.xhtml" NAME="output2"
+    PATH="/show-benutzerliste.xhtml"
+    TARGET="rules:#show-benutzerliste.xhtml" TITLE="show-benutzerliste" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#show-bestellung.xhtml"
+  PATH="/show-bestellung.xhtml" SHAPE="440,416,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#show-bestellung.xhtml:0" NAME="item"
+   PATH="/show-bestellung.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="489,448,1000,448,1000,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bestellungAbbruch::#welcome.xhtml"
+    NAME="output1" PATH="/welcome.xhtml"
+    SHAPE="489,464,784,464,784,384,144,384,144,48,159,48"
+    TARGET="rules:#welcome.xhtml" TITLE="bestellungAbbruch" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="bestellungen-kunde-offen::#bestellungen-kunde-offen.xhtml"
+    NAME="output2" PATH="/bestellungen-kunde-offen.xhtml"
+    SHAPE="489,480,592,480,592,576,432,576,432,624,447,624"
+    TARGET="rules:#bestellungen-kunde-offen.xhtml"
+    TITLE="bestellungen-kunde-offen" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bestellungen-bestaetigen.xhtml"
+  PATH="/bestellungen-bestaetigen.xhtml" SHAPE="440,312,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#bestellungen-bestaetigen.xhtml:0" NAME="item"
+   PATH="/bestellungen-bestaetigen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="489,344,520,344,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="bestellungen-liefertermin-bestaetigen::#bestellungen-liefertermin-bestaetigen.xhtml"
+    NAME="output1" PATH="/bestellungen-liefertermin-bestaetigen.xhtml"
+    TARGET="rules:#bestellungen-liefertermin-bestaetigen.xhtml"
+    TITLE="bestellungen-liefertermin-bestaetigen" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bestellungen-liefertermin-bestaetigen.xhtml"
+  PATH="/bestellungen-liefertermin-bestaetigen.xhtml"
+  SHAPE="720,328,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#bestellungen-liefertermin-bestaetigen.xhtml:0" NAME="item"
+   PATH="/bestellungen-liefertermin-bestaetigen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="769,360,1000,360,1000,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bestellung-auswahl-kunde.xhtml"
+  PATH="/bestellung-auswahl-kunde.xhtml" SHAPE="352,512,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#bestellung-auswahl-kunde.xhtml:0" NAME="item"
+   PATH="/bestellung-auswahl-kunde.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="show-bestellung::#show-bestellung.xhtml"
+    NAME="output" PATH="/show-bestellung.xhtml"
+    TARGET="rules:#show-bestellung.xhtml" TITLE="show-bestellung" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" SHAPE="401,560,520,560,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bestellung-auswahl-liefern.xhtml"
+  PATH="/bestellung-auswahl-liefern.xhtml" SHAPE="456,720,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#bestellung-auswahl-liefern.xhtml:0"
+   NAME="item" PATH="/bestellung-auswahl-liefern.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="505,752,520,752,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="lieferung-abschliessen::#lieferung-abschliessen.xhtml"
+    NAME="output1" PATH="/lieferung-abschliessen.xhtml"
+    TARGET="rules:#lieferung-abschliessen.xhtml"
+    TITLE="lieferung-abschliessen" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#lieferung-abschliessen.xhtml"
+  PATH="/lieferung-abschliessen.xhtml" SHAPE="736,728,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#lieferung-abschliessen.xhtml:0" NAME="item"
+   PATH="/lieferung-abschliessen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="785,760,1000,760,1000,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="bestellung-auswahl-liefern::#bestellung-auswahl-liefern.xhtml"
+    NAME="output1" PATH="/bestellung-auswahl-liefern.xhtml"
+    TARGET="rules:#bestellung-auswahl-liefern.xhtml"
+    TITLE="bestellung-auswahl-liefern" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bestellungen-zahlung-offen.xhtml"
+  PATH="/bestellungen-zahlung-offen.xhtml" SHAPE="456,816,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#bestellungen-zahlung-offen.xhtml:0"
+   NAME="item" PATH="/bestellungen-zahlung-offen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="505,848,520,848,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bestellungen-kunde-offen.xhtml"
+  PATH="/bestellungen-kunde-offen.xhtml" SHAPE="448,616,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#bestellungen-kunde-offen.xhtml:0" NAME="item"
+   PATH="/bestellungen-kunde-offen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="497,648,520,648,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="show-bestellung::#show-bestellung.xhtml"
+    NAME="output1" PATH="/show-bestellung.xhtml"
+    SHAPE="497,664,568,664,568,512,424,512,424,424,439,424"
+    TARGET="rules:#show-bestellung.xhtml" TITLE="show-bestellung" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#benutzer-konto.xhtml"
+  PATH="/benutzer-konto.xhtml" SHAPE="464,904,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#benutzer-konto.xhtml:0" NAME="item"
+   PATH="/benutzer-konto.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="513,936,520,936,520,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="passwort-aendern::#passwort-aendern.xhtml"
+    NAME="output1" PATH="/passwort-aendern.xhtml"
+    TARGET="rules:#passwort-aendern.xhtml" TITLE="passwort-aendern" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#passwort-aendern.xhtml"
+  PATH="/passwort-aendern.xhtml" SHAPE="744,912,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#passwort-aendern.xhtml:0" NAME="item"
+   PATH="/passwort-aendern.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" SHAPE="793,944,1000,944,1000,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="benutzer-konto::#benutzer-konto.xhtml"
+    NAME="output1" PATH="/benutzer-konto.xhtml"
+    TARGET="rules:#benutzer-konto.xhtml" TITLE="benutzer-konto" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#kontakt.xhtml" PATH="/kontakt.xhtml"
+  SHAPE="472,1000,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#kontakt.xhtml:0" NAME="item"
+   PATH="/kontakt.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loggedOut::#login.xhtml" NAME="output"
+    PATH="/login.xhtml"
+    SHAPE="521,1032,1000,1032,1000,0,32,0,32,56,39,56"
+    TARGET="rules:#login.xhtml" TITLE="loggedOut" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

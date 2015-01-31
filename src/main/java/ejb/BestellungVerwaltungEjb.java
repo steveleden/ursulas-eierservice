@@ -51,12 +51,12 @@ public class BestellungVerwaltungEjb implements BestellungVerwaltungInt{
         //Timezone setzen
         c.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
         
-        Integer dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        Integer dayOfWeek = c.get(Calendar.DAY_OF_WEEK); 
         int diff = Calendar.TUESDAY - dayOfWeek;
         if (!(diff > 0)) {
             diff += 7;
         }
-        if (dayOfWeek == Calendar.SUNDAY ||
+        if (dayOfWeek == Calendar.SUNDAY   ||
             dayOfWeek == Calendar.MONDAY) {
             diff += 7;
             }

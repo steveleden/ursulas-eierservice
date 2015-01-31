@@ -16,21 +16,29 @@
 				<h:panelGrid columns="3">
 					<h:outputLabel value="Benutzername:" />
 						<h:inputText id="show_benutzer_name"
+									 style="width : 200px;"
 									 value="#{benutzerViewBean.benutzerView.benutzer.name}" 
 									 required="true"
 									 requiredMessage="Benutzername eingeben"/>
 						<h:messages for="show_benutzer_name" styleClass="messages" layout="table"/>							 
+					<h:outputLabel value="E-Mail"/>
+						<h:inputText id="show_benutzer_email"
+									 style="width : 200px;"
+									 value="#{benutzerViewBean.benutzerView.benutzer.email}" 
+									 maxlength="254"/>
+						<h:panelGroup></h:panelGroup>						 
+					<h:outputLabel value="Passwort:" />
+						<h:inputText id="show_benutzer_pw"
+									 style="width : 200px;"
+									 value="#{benutzerViewBean.benutzerView.pw}"
+									 required="true" 
+									 requiredMessage="Passwort eingeben"/>
+						<h:messages for="show_benutzer_pw" styleClass="messages" layout="table"/>
 					<h:outputLabel value="Rolle:" />
 					<h:selectOneMenu value="#{benutzerViewBean.benutzerView.rolle}" >
 						<f:selectItems value="#{benutzerVerwaltungController.selectItems}" />
 					</h:selectOneMenu>
 					<h:panelGroup></h:panelGroup>	
-					<h:outputLabel value="Passwort:" />
-						<h:inputText id="show_benutzer_pw"
-									 value="#{benutzerViewBean.benutzerView.pw}"
-									 required="true" 
-									 requiredMessage="Passwort eingeben"/>
-						<h:messages for="show_benutzer_pw" styleClass="messages" layout="table"/>
 				</h:panelGrid>
 				</fieldset>
 				<br />
