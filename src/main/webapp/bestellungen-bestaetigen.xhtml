@@ -39,12 +39,16 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Kunde</f:facet>
-				<h:outputText value="#{bestellungItem.kunde.nachname}" style="margin: 5px"/>
-				<h:outputText value="#{bestellungItem.kunde.vorname}"  style="margin: 5px"/>
+				<div style="max-width: 200px">
+					<h:outputText value="#{bestellungItem.kunde.nachname}" style="margin: 5px"/>
+					<h:outputText value="#{bestellungItem.kunde.vorname}"  style="margin: 5px"/>
+				</div>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Kommentar</f:facet>
+				<div style="max-width: 250px">
 				#{bestellungItem.bestellung.kommentar}
+				</div>
 			</h:column>
 		</h:dataTable>
 		<h:messages styleClass="messages" layout="table"/>

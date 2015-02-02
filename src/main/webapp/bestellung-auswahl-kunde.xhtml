@@ -22,8 +22,10 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Kunde</f:facet>
-				<h:outputText value="#{kundenItem.kunde.nachname}" style="margin: 5px"/>
-				<h:outputText value="#{kundenItem.kunde.vorname}"  style="margin: 5px"/>
+				<div style="max-width: 200px">
+					<h:outputText value="#{kundenItem.kunde.nachname}" style="margin: 5px"/>
+					<h:outputText value="#{kundenItem.kunde.vorname}"  style="margin: 5px"/>
+				</div>
 			</h:column>
 		</h:dataTable>
 		<h:messages styleClass="messages" layout="table"/>

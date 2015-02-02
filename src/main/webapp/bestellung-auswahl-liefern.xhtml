@@ -37,7 +37,9 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Kommentar</f:facet>
-				#{bestellungItem.bestellung.kommentar}
+				<div style="max-width: 200px">
+					#{bestellungItem.bestellung.kommentar}
+				</div>
 			</h:column>
 		</h:dataTable>
 		<h:messages styleClass="messages" layout="table"/>
