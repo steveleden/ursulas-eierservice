@@ -13,37 +13,39 @@
  
  
 	<ui:define name="content">
-		<h1>Benutzerliste</h1>
-		<h:form>
-		<h:dataTable value="#{benutzerListeViewBean.benutzerListView}" var="benutzerItem"
-					 styleClass="datagrid" cellspacing="0">
-			<h:column >
-				<f:facet name="header" ></f:facet>
-				<h:selectBooleanCheckbox value="#{benutzerItem.checked}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Name</f:facet>
-				#{benutzerItem.benutzer.name}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Rolle</f:facet>
-				#{benutzerItem.rolle}
-			</h:column>
-			<h:column>
-				<f:facet name="header">E-Mail</f:facet>
-				#{benutzerItem.benutzer.email}
-			</h:column>
-			<h:column >
-				<f:facet name="header">Logins</f:facet>
-				#{benutzerItem.benutzer.loginCounter}
-			</h:column>
-			<h:column >
-				<f:facet name="header">Letztes Login</f:facet>
-				<h:outputText value="#{benutzerItem.benutzer.loginZuletzt}">
-					<f:convertDateTime type="both" locale="de" timeZone="#{globalBean.hostTimeZone}"/>
-				</h:outputText>
-			</h:column>
-		</h:dataTable>
+		<h1 class="w3-center">Benutzerliste</h1>
+		<h:form styleClass="w3-center">
+		<div class="w3-responsive">
+			<h:dataTable value="#{benutzerListeViewBean.benutzerListView}" var="benutzerItem"
+						 styleClass="datagrid" cellspacing="0">
+				<h:column >
+					<f:facet name="header" ></f:facet>
+					<h:selectBooleanCheckbox value="#{benutzerItem.checked}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					#{benutzerItem.benutzer.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Rolle</f:facet>
+					#{benutzerItem.rolle}
+				</h:column>
+				<h:column>
+					<f:facet name="header">E-Mail</f:facet>
+					#{benutzerItem.benutzer.email}
+				</h:column>
+				<h:column >
+					<f:facet name="header">Logins</f:facet>
+					#{benutzerItem.benutzer.loginCounter}
+				</h:column>
+				<h:column >
+					<f:facet name="header">Letztes Login</f:facet>
+					<h:outputText value="#{benutzerItem.benutzer.loginZuletzt}">
+						<f:convertDateTime type="both" locale="de" timeZone="#{globalBean.hostTimeZone}"/>
+					</h:outputText>
+				</h:column>
+			</h:dataTable>
+		</div>
 		<h:messages styleClass="messages" layout="table"/>
 		<h:commandButton action="#{benutzerVerwaltungController.gotoBenutzerErfassen()}" value="Neuer Benutzer" rendered="#{benutzerListeViewBean.dialogModus=='BENUTZER_VERWALTUNG'}"
 						 styleClass="normalButton"/>
@@ -51,7 +53,7 @@
 						 styleClass="normalButton"/>
 		<h:commandButton action="#{benutzerVerwaltungController.benutzerLoeschen()}" value="selektierte löschen" rendered="#{benutzerListeViewBean.dialogModus=='BENUTZER_VERWALTUNG'}"
 						 styleClass="normalButton"/>
-		<h:commandButton action="#{kundenVerwaltungController.benutzerAusgewaehlt()}" value="Benutzer auswaehlen" rendered="#{benutzerListeViewBean.dialogModus=='BENUTZERWAHL_FUER_KUNDE'}"
+		<h:commandButton action="#{kundenVerwaltungController.benutzerAusgewaehlt()}" value="Benutzer ausw&auml;hlen" rendered="#{benutzerListeViewBean.dialogModus=='BENUTZERWAHL_FUER_KUNDE'}"
 						 styleClass="normalButton"/>
 		</h:form>
 		</ui:define>

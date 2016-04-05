@@ -42,10 +42,12 @@
 				</h:panelGrid>
 				</fieldset>
 				<br />
-				<h:commandButton action="#{benutzerVerwaltungController.abbrechenBenutzerMutieren()}" value="Abbrechen" immediate="true"
-						 			 styleClass="normalButton"/>
-				<h:commandButton action="#{benutzerVerwaltungController.benutzerSpeichern}" value="Speichern" 
-						 				 styleClass="normalButton"/>
+				<div>
+					<h:commandButton action="#{benutzerVerwaltungController.benutzerSpeichern}" value="Speichern" 
+							 				 styleClass="normalButton"/>
+					<h:commandButton action="#{benutzerVerwaltungController.abbrechenBenutzerMutieren()}" value="Abbrechen" immediate="true"
+							 			 styleClass="normalButton"/>
+				</div>
 			</h:form>
 		</ui:define>
 	</ui:composition>

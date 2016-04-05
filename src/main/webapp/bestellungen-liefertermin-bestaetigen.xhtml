@@ -12,34 +12,36 @@
 	<ui:composition template="/WEB-INF/template/BasicTemplate.xhtml">
 
 	<ui:define name="content">
-		<h2>Liefertermin zu diesen Bestellungen bestaetigen</h2>
-		<h:form>
-			<h:dataTable value="#{bestellungListeViewBean.bestellungListView}" var="bestellungItem"
-						 styleClass="datagrid" cellspacing="0">
+		<h2 class="w3-center">Liefertermin zu diesen Bestellungen best&auml;tigen</h2>
+		<h:form styleClass="w3-center">
+			<div class="w3-responsive">
+				<h:dataTable value="#{bestellungListeViewBean.bestellungListView}" var="bestellungItem"
+							 styleClass="datagrid" cellspacing="0">
+					<h:column>
+						<f:facet name="header">Liefertermin</f:facet>
+						<h:outputText value="#{bestellungItem.bestellung.liefertermin}">
+							<f:convertDateTime locale="de_CH" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Anzahl</f:facet>
+						#{bestellungItem.bestellung.anzahl}
+					</h:column>
 				<h:column>
-					<f:facet name="header">Liefertermin</f:facet>
-					<h:outputText value="#{bestellungItem.bestellung.liefertermin}">
-						<f:convertDateTime locale="de_CH" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
-					</h:outputText>
+					<f:facet name="header">Kunde</f:facet>
+					<h:outputText value="#{bestellungItem.kunde.nachname}" style="margin: 5px"/>
+					<h:outputText value="#{bestellungItem.kunde.vorname}"  style="margin: 5px"/>
 				</h:column>
 				<h:column>
-					<f:facet name="header">Anzahl</f:facet>
-					#{bestellungItem.bestellung.anzahl}
-				</h:column>
-			<h:column>
-				<f:facet name="header">Kunde</f:facet>
-				<h:outputText value="#{bestellungItem.kunde.nachname}" style="margin: 5px"/>
-				<h:outputText value="#{bestellungItem.kunde.vorname}"  style="margin: 5px"/>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Kommentar</f:facet>
-				#{bestellungItem.bestellung.kommentar}
-			</h:column>			</h:dataTable>
+					<f:facet name="header">Kommentar</f:facet>
+					#{bestellungItem.bestellung.kommentar}
+				</h:column>			</h:dataTable>
+			</div>
 			<br />
 			<h:panelGroup style="margin: 50px 0px 0px 0px">
-				<h:outputLabel value="Bestaetigter Liefertermin:" />
+				<h:outputLabel value="Best&auml;tigter Liefertermin:" />
 				<h:inputText value="#{bestellungViewBean.bestellungView.bestellung.lieferterminBestaetigt}" 
-							 converterMessage="Bitte gueltiges Datum eingeben"
+							 converterMessage="Bitte g&uuml;ltiges Datum eingeben"
 							 styleClass="datepickerInputAbHeute"
 							 >
 					<f:convertDateTime locale="de_CH" pattern="E, dd.M.yyyy"  timeZone="#{globalBean.hostTimeZone}"/>
@@ -48,10 +50,9 @@
 			<br />
 			<h:messages styleClass="messages" layout="table"/>
 			<br />
-			<br />
-			<h:commandButton action="#{bestellungVerwaltungController.startBestellungBestaetigen()}" value="Abbrechen"
+			<h:commandButton action="#{bestellungVerwaltungController.bestaetigenLiefertermin()}" value="Liefertermin best&auml;tigen"
 							 styleClass="normalButton"/>
-			<h:commandButton action="#{bestellungVerwaltungController.bestaetigenLiefertermin()}" value="Liefertermin bestaetigen"
+			<h:commandButton action="#{bestellungVerwaltungController.startBestellungBestaetigen()}" value="Abbrechen"
 							 styleClass="normalButton"/>
 		</h:form>
 	</ui:define>

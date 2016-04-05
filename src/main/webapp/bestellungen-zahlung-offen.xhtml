@@ -12,40 +12,42 @@
 	<ui:composition template="/WEB-INF/template/BasicTemplate.xhtml">
 
 	<ui:define name="content">
-		<h1>Offene Zahlung</h1>
-		<h:form>
-			<h:dataTable value="#{bestellungListeViewBean.bestellungListView}" var="bestellungItem"
-						 styleClass="datagrid" cellspacing="0">
-				<h:column >
-					<f:facet name="header" ></f:facet>
-					<h:selectBooleanCheckbox value="#{bestellungItem.checked}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Bestell<br />Nr</f:facet>
-					#{bestellungItem.bestellung.id}
-				</h:column>
-				<h:column>
-					<f:facet name="header">Kunde</f:facet>
-					<h:outputText value="#{bestellungItem.kunde.nachname}" style="margin: 5px"/>
-					<h:outputText value="#{bestellungItem.kunde.vorname}"  style="margin: 5px"/>
-				</h:column>
-				<h:column>
-					<f:facet name="header">geliefert am</f:facet>
-					<h:outputText value="#{bestellungItem.bestellung.geliefertAm}">
-						<f:convertDateTime locale="de_CH" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
-					</h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Anzahl</f:facet>
-					#{bestellungItem.bestellung.anzahl}
-				</h:column>
-				<h:column>
-					<f:facet name="header">Preis</f:facet>
-					<h:outputText value="#{bestellungItem.bestellung.preistotal}">
-						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" locale="de_CH" />
-					</h:outputText>
-				</h:column>
-			</h:dataTable>
+		<h1 class="w3-center">Offene Zahlung</h1>
+		<h:form styleClass="w3-center">
+			<div class="w3-responsive">
+				<h:dataTable value="#{bestellungListeViewBean.bestellungListView}" var="bestellungItem"
+							 styleClass="datagrid" cellspacing="0">
+					<h:column >
+						<f:facet name="header" ></f:facet>
+						<h:selectBooleanCheckbox value="#{bestellungItem.checked}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Bestell<br />Nr</f:facet>
+						#{bestellungItem.bestellung.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Kunde</f:facet>
+						<h:outputText value="#{bestellungItem.kunde.nachname}" style="margin: 5px"/>
+						<h:outputText value="#{bestellungItem.kunde.vorname}"  style="margin: 5px"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">geliefert am</f:facet>
+						<h:outputText value="#{bestellungItem.bestellung.geliefertAm}">
+							<f:convertDateTime locale="de_CH" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Anzahl</f:facet>
+						#{bestellungItem.bestellung.anzahl}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Preis</f:facet>
+						<h:outputText value="#{bestellungItem.bestellung.preistotal}">
+							<f:convertNumber minFractionDigits="2" maxFractionDigits="2" locale="de_CH" />
+						</h:outputText>
+					</h:column>
+				</h:dataTable>
+			</div>
 			<br />
 			<h:messages styleClass="messages" layout="table"/>
 

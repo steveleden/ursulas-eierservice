@@ -84,7 +84,8 @@ public class AuthController implements Serializable {
 		}
 		System.out.println("auth fehler");
 		benutzer.setAuthorisiert(false);
-		FacesContext.getCurrentInstance().addMessage("frm:the_password", new FacesMessage("Passwort falsch"));
+		FacesContext.getCurrentInstance().addMessage("frm1:the_password", new FacesMessage("Passwort falsch"));
+		FacesContext.getCurrentInstance().addMessage("frm2:the_password", new FacesMessage("Passwort falsch"));
 		return "loginFailure";
 
 	}

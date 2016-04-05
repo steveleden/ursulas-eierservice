@@ -12,8 +12,8 @@
 	<ui:composition template="/WEB-INF/template/BasicTemplate.xhtml">
 
 	<ui:define name="content">
-		<h2 style="max-width: 300px">Kunde fuer Bestellung auswaehlen:</h2>
-		<h:form>
+		<h2 class="w3-center">Kunde f&uuml;r Bestellung auswaehlen:</h2>
+		<h:form styleClass="w3-center">
 		<h:dataTable value="#{kundeListeViewBean.kundenListView}" var="kundenItem"
 					 styleClass="datagrid" cellspacing="0">
 			<h:column >

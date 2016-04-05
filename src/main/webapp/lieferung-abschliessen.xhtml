@@ -16,7 +16,7 @@
 				<fieldset class="fieldset" >
 					<legend>Lieferung abschliessen</legend>
 					
-					<h:panelGrid columns="2">
+					<h:panelGrid columns="2" style="max-width: 230px">
 					
 						<h:outputLabel value="Kunde:" />
 						<h:panelGrid columns="2" >
@@ -28,11 +28,11 @@
 						
 						<h:outputLabel value="Anzahl:" />
 						<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.anzahl}" /> 			
-						<h:outputLabel value="Bestaetigter Liefertermin:" />
+						<h:outputLabel value="Best&auml;tigter Liefertermin:" />
 						<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.lieferterminBestaetigt}" >
 							<f:convertDateTime locale="de" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
 						</h:outputText>
-						<h:outputLabel value="gewuenschter Liefertermin:" />
+						<h:outputLabel value="Gew&uuml;nschter Liefertermin:" />
 						<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.liefertermin}" >
 							<f:convertDateTime locale="de" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
 						</h:outputText>
@@ -50,20 +50,22 @@
 					<h:inputTextarea id="show_bestellung_kommentar"
 								     value="#{bestellungViewBean.bestellungView.bestellung.kommentar}" 
 									 validatorMessage="Maximal 255 Zeichen im Kommentar."
-								 	 style=" width : 300px; height: 100px;"
+								 	 style="max-width:99%; width : 100%; height: 100px;"
 					             	 disabled="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
 						<f:validateLength maximum="255"></f:validateLength>
 					</h:inputTextarea>
 					
 				</fieldset>
 				<br />
-				<h:messages styleClass="messages" layout="table"/>							 
-				<h:commandButton action="#{bestellungVerwaltungController.liefernAbbruch()}" value="Abbrechen" styleClass="normalButton"
-				 				 immediate="true"/>
-				<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenNichtBezahlt()}" value="Lieferung ohne Bezahlung" styleClass="normalButton"
-				 				 immediate="true"/>
-				<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenBezahlt()}" value="Lieferung bar bezahlt" styleClass="normalButton"
-				 				 immediate="true"/>
+				<div class="w3-center">
+					<h:messages styleClass="messages" layout="table"/>							 
+					<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenNichtBezahlt()}" value="Lieferung ohne Bezahlung" styleClass="normalButton"
+					 				 immediate="true"/>
+					<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenBezahlt()}" value="Lieferung bar bezahlt" styleClass="normalButton"
+					 				 immediate="true"/>
+					<h:commandButton action="#{bestellungVerwaltungController.liefernAbbruch()}" value="Abbrechen" styleClass="normalButton"
+					 				 immediate="true"/>
+				</div>
 			</h:form>
 			
 		</ui:define>

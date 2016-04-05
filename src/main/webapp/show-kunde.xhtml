@@ -37,19 +37,21 @@
 						</h:dataTable>
 					</h:panelGroup>
 					<h:panelGroup>
-						<h:commandButton action="#{kundenVerwaltungController.benutzerEntfernen()}" value="loeschen" 
+						<h:commandButton action="#{kundenVerwaltungController.benutzerEntfernen()}" value="l&ouml;schen" 
 						 				 styleClass="normalButtonKlein"/>
 					</h:panelGroup>
 				</h:panelGrid>
 				</fieldset>
 				<br />
-				<h:messages styleClass="messages" layout="table"/>				
-				<h:commandButton  action="#{kundenVerwaltungController.kundeMutierenAbbrechen()}" value="Abbrechen" immediate="true"
-						 		  styleClass="normalButton"/>
-				<h:commandButton action="#{kundenVerwaltungController.gotoBenutzerAuswaehlen()}" value="Benutzer zuordnen"
-						 		 styleClass="normalButton"/>
-				<h:commandButton action="#{kundenVerwaltungController.kundeSpeichern()}" value="Speichern" 
-						 		 styleClass="normalButton"/>
+				<div class="w3-center">
+					<h:messages styleClass="messages" layout="table"/>				
+					<h:commandButton action="#{kundenVerwaltungController.gotoBenutzerAuswaehlen()}" value="Benutzer zuordnen"
+							 		 styleClass="normalButton"/>
+					<h:commandButton action="#{kundenVerwaltungController.kundeSpeichern()}" value="Speichern" 
+							 		 styleClass="normalButton"/>
+					<h:commandButton  action="#{kundenVerwaltungController.kundeMutierenAbbrechen()}" value="Abbrechen" immediate="true"
+							 		  styleClass="normalButton"/>
+				</div>
 			</h:form>
 		</ui:define>
 	</ui:composition>

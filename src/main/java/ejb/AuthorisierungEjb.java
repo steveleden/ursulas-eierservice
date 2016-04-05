@@ -7,7 +7,6 @@ import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 @Stateful
 /* Falls authorisiert: Gibt die Rolle (1 = Benutzer, 2 = Administrator) zurueck. */
 /* Falls nicht authorisiert: 0                                                  */

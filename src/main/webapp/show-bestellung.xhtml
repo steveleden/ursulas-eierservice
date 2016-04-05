@@ -13,16 +13,17 @@
 
 	
 		<ui:define name="content">
-			<h:panelGrid columns="2" >
-				<h:form id="form_bestellung">
-					<fieldset class="fieldset" >
+			<div class="w3-row">
+				<div class="w3-half">
+				<h:form id="form_bestellung" >
+					<fieldset class="fieldset">
 					
 						<c:choose>
 						<c:when test="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN'}">
 							<legend>Bestellung erfassen</legend>
 						</c:when>
 						<c:when test="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
-							<legend>Bestellung bestaetigen</legend>		
+							<legend>Bestellung best&auml;tigen</legend>		
 						</c:when>
 						<c:when test="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_MUTIEREN'}">
 							<legend>Bestellung mutieren</legend>		
@@ -32,15 +33,12 @@
 						</c:otherwise>
 						</c:choose>
 					
-						<h:panelGrid columns="2">
+						<h:panelGrid columns="2" style="max-width: 230px">
 						
 							<h:outputLabel value="Kunde:" />
-							<h:panelGrid columns="2" >
-								<h:outputText value="#{bestellungVerwaltungController.bestellungViewBean.bestellungView.kunde.nachname}" 
+								<h:outputText
+								  		   value="#{bestellungVerwaltungController.bestellungViewBean.bestellungView.kunde.nachname} #{bestellungVerwaltungController.bestellungViewBean.bestellungView.kunde.vorname}" 
 											  />
-								<h:outputText value="#{bestellungVerwaltungController.bestellungViewBean.bestellungView.kunde.vorname}" 
-											  />
-							</h:panelGrid>
 							<h:outputLabel value="Anzahl:" />
 							<h:inputText id="show_bestellung_anzahl"
 										 value="#{bestellungViewBean.bestellungView.bestellung.anzahl}" 
@@ -48,7 +46,7 @@
 							             required="true" requiredMessage="Bitte Anzahl eingeben."
 							             validatorMessage="Bitte Anzahl eingeben."
 							             converterMessage="Bitte gueltige Anzahl eingeben."						             
-							             style=" width : 25px;"
+							             style=" width : 30px;"
 							             rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN'
 							             		  or bestellungVerwaltungController.dialogModus=='BESTELLUNG_MUTIEREN'}">
 								<f:validateLongRange minimum="1" maximum="99" />
@@ -61,7 +59,7 @@
 							<h:outputLabel value="Liefertermin:" />
 							<h:inputText id="show_bestellung_liefertermin"
 										 value="#{bestellungViewBean.bestellungView.bestellung.liefertermin}" 
-										 style=" width : 100%; "
+										 style=" width : 100%; max-width: 200px"
 										 styleClass="datepickerInputPlus4"
 							             required="true" requiredMessage="Bitte gewuenschten Lieferterming eingeben."
 							             converterMessage="Bitte gueltigen Liefertermin eingeben."	
@@ -90,7 +88,7 @@
 										               bestellungVerwaltungController.dialogModus=='BESTELLUNG_MUTIEREN'}"/>
 							<h:panelGroup rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN' or
 										              bestellungVerwaltungController.dialogModus=='BESTELLUNG_MUTIEREN'}">
-								<div style="width: 350px; padding: 0px 0px 2px 0px;">
+								<div >
 									<h:outputText value="In der Regel findet die Lieferung jeweils am Dienstag statt.
 									                     Falls möglich, werden auch andere Terminwünsche berücksichtigt.
 									                     Sobald der Liefertermin feststeht, ist der bestätigte Liefertermin in der Bestellung zu sehen." 
@@ -102,28 +100,31 @@
 							<h:inputTextarea id="show_bestellung_kommentar"
 										     value="#{bestellungViewBean.bestellungView.bestellung.kommentar}" 
 											 validatorMessage="Maximal 255 Zeichen im Kommentar."
-										 	 style=" width : 350px; height: 100px;"
+										 	 style="max-width:99%; width : 100%; height: 100px;"
 							             	 disabled="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
 								<f:validateLength maximum="255"></f:validateLength>
 							</h:inputTextarea>
 						</h:panelGrid>
 					</fieldset>
-					
+					<div class="w3-center">
 					<h:messages styleClass="messages" layout="table"/>							 
-					<h:commandButton action="#{bestellungVerwaltungController.bestellenAbbruch()}" value="Abbrechen" styleClass="normalButton"
-					 				 immediate="true"/>
 					<h:commandButton action="#{bestellungVerwaltungController.bestellenWeiter()}" value="Weiter" styleClass="normalButton"
 									 rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN'}"/>
 					<h:commandButton action="#{bestellungVerwaltungController.bestellenSpeichern()}" value="Bestellen" styleClass="normalButton"
 									 rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}"/>
 					<h:commandButton action="#{bestellungVerwaltungController.bestellungMutierenSpeichern()}" value="Speichern" styleClass="normalButton"
 									 rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_MUTIEREN'}"/>
+					<h:commandButton action="#{bestellungVerwaltungController.bestellenAbbruch()}" value="Abbrechen" styleClass="normalButton"
+					 				 immediate="true"/>
+					</div>
 				</h:form>
-				<h:panelGrid>
-					<h:graphicImage value="/images/zweibibeli.png" style="margin-left: 30px"/>
+				</div>
+				<div class="w3-half w3-center" style="height: 100%">
+					<h:graphicImage value="/images/zweibibeli.png"
+									style="width: 100%; max-width: 400px; padding: 18px 10px 10px 10px"/>
 <!-- 					<h:outputText value="Im Osterstress..." style="margin-left: 30px"/> -->
-				</h:panelGrid>
-			</h:panelGrid>
+				</div>
+			</div>
 		</ui:define>
 		
 	</ui:composition>
