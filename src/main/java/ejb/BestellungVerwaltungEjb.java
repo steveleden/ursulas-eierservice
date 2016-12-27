@@ -22,7 +22,7 @@ public class BestellungVerwaltungEjb implements BestellungVerwaltungInt{
 	@PersistenceContext
 	private EntityManager em;
 	
-	private BigDecimal stueckPreis = new BigDecimal(0.7);
+	private BigDecimal stueckPreis = new BigDecimal(0.8);
 
 	
 	/* Business - Logik */
