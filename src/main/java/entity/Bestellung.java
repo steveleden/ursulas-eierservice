@@ -23,6 +23,9 @@ public class Bestellung implements Serializable {
 	@Column(nullable=false)
 	private int anzahl;
 
+	@Column(name="belastung_guthaben")
+	private int belastungGuthaben;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="bestaetigt_am")
 	private Date bestaetigtAm;
@@ -88,6 +91,14 @@ public class Bestellung implements Serializable {
 
 	public void setAnzahl(int anzahl) {
 		this.anzahl = anzahl;
+	}
+
+	public int getBelastungGuthaben() {
+		return this.belastungGuthaben;
+	}
+
+	public void setBelastungGuthaben(int belastungGuthaben) {
+		this.belastungGuthaben = belastungGuthaben;
 	}
 
 	public Date getBestaetigtAm() {

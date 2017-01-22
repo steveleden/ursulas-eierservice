@@ -48,6 +48,10 @@ public interface BestellungVerwaltungInt {
 	
 	// Setzt Status=3 (=geliefert), setzt geliefert_am, und falls bezahlt bezahlt_am
 	Integer				lieferungAbschliessen(Integer bestellungId, Boolean bezahlt);
+
+	// Setzt Status=3 (=geliefert), setzt geliefert_am, und bezahlt_am
+	// Das Kundenguthaben wird belastet
+	Integer lieferungAbschliessenBelastungGuthaben(Integer bestellungId);	
 	
 	// Setzt Status=4 (abgeschlossen) und setzt bezahlt_am
 	Integer bestellungBezahltSetzen(Integer bestellungId);

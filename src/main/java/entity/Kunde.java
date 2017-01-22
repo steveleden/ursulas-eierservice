@@ -2,6 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -18,6 +19,9 @@ public class Kunde implements Serializable {
 	@Id
 	@Column(unique=true, nullable=false)
 	private int id;
+
+	@Column(nullable=false, precision=10, scale=2)
+	private BigDecimal guthaben;
 
 	@Column(nullable=false, length=45)
 	private String nachname;
@@ -42,6 +46,14 @@ public class Kunde implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public BigDecimal getGuthaben() {
+		return this.guthaben;
+	}
+
+	public void setGuthaben(BigDecimal guthaben) {
+		this.guthaben = guthaben;
 	}
 
 	public String getNachname() {

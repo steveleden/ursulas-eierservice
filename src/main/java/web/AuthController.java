@@ -79,6 +79,7 @@ public class AuthController implements Serializable {
 					return "loginFailure";
 				}
 				benutzer.setKundenId(kunde.getId());
+				benutzer.setGuthaben(kunde.getGuthaben());
 			}
 			return "loggedIn";
 		}

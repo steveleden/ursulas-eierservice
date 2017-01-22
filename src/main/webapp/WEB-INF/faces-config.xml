@@ -84,6 +84,11 @@
    <to-view-id>/show-kunde.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>show-einzahlung</from-outcome>
+   <to-view-id>/einzahlung.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/show-kunde.xhtml</from-view-id>
@@ -233,6 +238,24 @@
   <navigation-case>
    <from-outcome>loggedOut</from-outcome>
    <to-view-id>/login.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/einzahlung.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>loggedOut</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>back-to-kundenliste</from-outcome>
+   <to-view-id>/show-kundenliste.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>show-einzahlung</from-outcome>
+   <to-view-id>/einzahlung.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
  </navigation-rule>

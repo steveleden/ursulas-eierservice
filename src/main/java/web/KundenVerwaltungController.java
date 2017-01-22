@@ -1,6 +1,7 @@
 package web;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,8 @@ public class KundenVerwaltungController implements Serializable {
 
 	private DialogModus	dialogModus = DialogModus.KUNDE_LISTE;
 		
-	enum DialogModus {KUNDE_LISTE,KUNDE_ERFASSEN, KUNDE_MUTIEREN, KUNDE_ANZEIGEN};
+	enum DialogModus {KUNDE_LISTE,KUNDE_ERFASSEN, KUNDE_MUTIEREN, KUNDE_ANZEIGEN,
+		KUNDE_EINZAHLUNG};
 
 	
 	@EJB
@@ -205,6 +207,30 @@ public class KundenVerwaltungController implements Serializable {
 			
 	}
 
+	public String einzahlungErfassenAbbrechen() {		
+		this.dialogModus = DialogModus.KUNDE_LISTE;
+		fuelleKundeListeViewBeanAlleKunden();
+		return "back-to-kundenliste";
+	}
+	
+	
+	public String einzahlungKundeSpeichern() {	
+		
+		Kunde k = this.kundeViewBean.getKundeView().getKunde();
+		BigDecimal einzahlungsBetrag = this.kundeViewBean.getKundeView().getEinzahlung();
+		k.setGuthaben(k.getGuthaben().add(einzahlungsBetrag));
+		
+		Integer resultat = kundenVerwaltung.mutiereKunde(k);
+		if (resultat != 0) {
+			return "show-einzahlung";
+		}							
+		/* View leeren */
+		this.kundeViewBean.setKundeView(new KundeView());
+		fuelleKundeListeViewBeanAlleKunden();
+		this.dialogModus = DialogModus.KUNDE_LISTE;
+		return "back-to-kundenliste";
+	}
+	
 
 	public String kundenLoeschen () {
 		
@@ -268,6 +294,39 @@ public class KundenVerwaltungController implements Serializable {
 		return "back-to-kundenliste";
 	}
 
+	public String gotoEinzahlungErfassen() {
+		
+		Integer count = 0;
+		dialogModus = DialogModus.KUNDE_EINZAHLUNG; /* Einzahlungsmodus */
+		for (KundeView kundenViewItem : kundeListeViewBean.getKundenListView()) {
+			if (kundenViewItem.checked) {
+				count ++;
+			}
+		}	
+		if (count > 1) {
+			FacesContext.getCurrentInstance().addMessage(null,
+	                new FacesMessage("Zum Mutieren nur 1 Kunden auswaehlen."));
+			this.dialogModus = DialogModus.KUNDE_LISTE;
+			return "back-to-kundenliste";			
+		}
+		
+		for (KundeView kundenViewItem : kundeListeViewBean.getKundenListView()) {
+			if (kundenViewItem.checked) {
+				this.kundeViewBean.setKundeView(kundenViewItem);
+				saveKundeBenutzerList.clear();
+				for (BenutzerView kv : this.kundeViewBean.getKundeView().getBenutzerListe()) {
+					saveKundeBenutzerList.add(kv.getBenutzer());
+				}
+				return "show-einzahlung";
+			}
+		}		
+
+		FacesContext.getCurrentInstance()
+	    .addMessage(null, new FacesMessage("Zu mutierenden Kunden auswaehlen."));
+		this.dialogModus = DialogModus.KUNDE_LISTE;
+		return "back-to-kundenliste";
+	}
+	
 	public String gotoBenutzerAuswaehlen() {
 		
 		List<Benutzer> benutzerListe = benutzerVerwaltung.leseBenutzerOhneKunde();		

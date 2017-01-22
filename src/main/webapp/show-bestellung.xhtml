@@ -13,10 +13,10 @@
 
 	
 		<ui:define name="content">
-			<div class="w3-row">
+			<div class="w3-row" >
 				<div class="w3-half">
 				<h:form id="form_bestellung" >
-					<fieldset class="fieldset">
+					<fieldset class="fieldset" >
 					
 						<c:choose>
 						<c:when test="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN'}">
@@ -33,9 +33,9 @@
 						</c:otherwise>
 						</c:choose>
 					
-						<h:panelGrid columns="2" style="max-width: 230px">
+						<h:panelGrid columns="2" style="max-width: 400px">
 						
-							<h:outputLabel value="Kunde:" />
+							<h:outputLabel value="Kunde:      " />
 								<h:outputText
 								  		   value="#{bestellungVerwaltungController.bestellungViewBean.bestellungView.kunde.nachname} #{bestellungVerwaltungController.bestellungViewBean.bestellungView.kunde.vorname}" 
 											  />
@@ -46,7 +46,7 @@
 							             required="true" requiredMessage="Bitte Anzahl eingeben."
 							             validatorMessage="Bitte Anzahl eingeben."
 							             converterMessage="Bitte gueltige Anzahl eingeben."						             
-							             style=" width : 30px;"
+							             style=" width : 40px;"
 							             rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN'
 							             		  or bestellungVerwaltungController.dialogModus=='BESTELLUNG_MUTIEREN'}">
 								<f:validateLongRange minimum="1" maximum="99" />
@@ -59,7 +59,7 @@
 							<h:outputLabel value="Liefertermin:" />
 							<h:inputText id="show_bestellung_liefertermin"
 										 value="#{bestellungViewBean.bestellungView.bestellung.liefertermin}" 
-										 style=" width : 100%; max-width: 200px"
+										 style=" width : 130px; "
 										 styleClass="datepickerInputPlus4"
 							             required="true" requiredMessage="Bitte gewuenschten Lieferterming eingeben."
 							             converterMessage="Bitte gueltigen Liefertermin eingeben."	
@@ -73,15 +73,29 @@
 								<f:convertDateTime locale="de_CH" pattern="E, dd.M.yyyy" timeZone="#{globalBean.hostTimeZone}"/>
 							</h:outputText>
 							
-							<h:outputLabel value="Preis SFR:" 
+							<h:outputLabel value="Preis SFr:" 
 										   rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}"/>
 							<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.preistotal}"
 										  rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
 								<f:convertNumber minFractionDigits="2" maxFractionDigits="2" locale="de_CH" />
 							</h:outputText>
+							<h:outputLabel value="Guthaben SFr:"
+										   rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}"/>
+							<h:outputText value="#{bestellungViewBean.bestellungView.kunde.guthaben}"
+										  rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
+								<f:convertNumber minFractionDigits="2" maxFractionDigits="2" locale="de_CH" />
+							</h:outputText>
 						</h:panelGrid>
+
+						<h:panelGroup rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
+							<div style="width: 100%; padding-left: 4px">
+								<h:outputText value="Dein Guthaben wird erst bei Lieferung belastet." 
+											  />
+							</div>
+						</h:panelGroup>
+
 	
-						<h:panelGrid columns="1">
+						<h:panelGrid columns="1" style="width: 100%">
 	
 							<h:outputLabel value="Hinweis zum Liefertermin:" 
 										   rendered="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_ERFASSEN' or
@@ -100,7 +114,7 @@
 							<h:inputTextarea id="show_bestellung_kommentar"
 										     value="#{bestellungViewBean.bestellungView.bestellung.kommentar}" 
 											 validatorMessage="Maximal 255 Zeichen im Kommentar."
-										 	 style="max-width:99%; width : 100%; height: 100px;"
+										 	 style="width: 100%; height: 100px;"
 							             	 disabled="#{bestellungVerwaltungController.dialogModus=='BESTELLUNG_BESTELLEN'}">
 								<f:validateLength maximum="255"></f:validateLength>
 							</h:inputTextarea>

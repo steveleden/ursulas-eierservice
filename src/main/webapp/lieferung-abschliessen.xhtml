@@ -16,7 +16,7 @@
 				<fieldset class="fieldset" >
 					<legend>Lieferung abschliessen</legend>
 					
-					<h:panelGrid columns="2" style="max-width: 230px">
+					<h:panelGrid columns="2" >
 					
 						<h:outputLabel value="Kunde:" />
 						<h:panelGrid columns="2" >
@@ -28,6 +28,10 @@
 						
 						<h:outputLabel value="Anzahl:" />
 						<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.anzahl}" /> 			
+						<h:outputLabel value="Preis:" />
+						<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.preistotal}" /> 			
+						<h:outputLabel value="Guthaben:" />
+						<h:outputText value="#{bestellungViewBean.bestellungView.kunde.guthaben}" /> 			
 						<h:outputLabel value="Best&auml;tigter Liefertermin:" />
 						<h:outputText value="#{bestellungViewBean.bestellungView.bestellung.lieferterminBestaetigt}" >
 							<f:convertDateTime locale="de" pattern="E, d.M.yyyy" timeZone="#{globalBean.localTimeZone}"/>
@@ -62,6 +66,8 @@
 					<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenNichtBezahlt()}" value="Lieferung ohne Bezahlung" styleClass="normalButton"
 					 				 immediate="true"/>
 					<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenBezahlt()}" value="Lieferung bar bezahlt" styleClass="normalButton"
+					 				 immediate="true"/>
+					<h:commandButton action="#{bestellungVerwaltungController.lieferungAbschliessenBelastungGuthaben()}" value="Belastung Guthaben" styleClass="normalButton"
 					 				 immediate="true"/>
 					<h:commandButton action="#{bestellungVerwaltungController.liefernAbbruch()}" value="Abbrechen" styleClass="normalButton"
 					 				 immediate="true"/>

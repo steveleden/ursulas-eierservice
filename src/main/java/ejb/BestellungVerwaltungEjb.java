@@ -142,8 +142,9 @@ public class BestellungVerwaltungEjb implements BestellungVerwaltungInt{
 					                           .getResultList();		
 			return b;
 		} catch (Exception e) {
-			System.out.println("BestellungVerwaltungEjb.leseBestellungenOffenByKundeId: "
+			System.out.println("BestellungVerwaltungEjb.leseBestellungenZumBestaetigen: "
 					+ "Bestellungen zum Bestaetigen konnten nicht gelesen werden.");
+			System.out.println(e.getMessage());
 			return null;
 		}
 		
@@ -264,13 +265,43 @@ public class BestellungVerwaltungEjb implements BestellungVerwaltungInt{
 	        b.setGeliefertAm(getLokaleZeit());
 			if (bezahlt) {
 		        b.setBezahltAm(getLokaleZeit());
+		        //BelastungGuthaben: 1=nein, bar bezahlt
+		        b.setBelastungGuthaben(1);
 		        //status: 4=abgeschlossen
 				b.setStatus(4);	
 			}
 			em.merge(b);
 			return 0;
 		} catch (Exception e) {
-			System.out.println("BestellungVerwaltungEjb.leseKundeZuBestellung: "
+			System.out.println("BestellungVerwaltungEjb.lieferungAbschliessen: "
+					+ "Lieferung kann nicht abgeschlossen werden. Id= " + bestellungId);
+			return -1;
+		}
+	}
+	
+	@Override
+	public Integer lieferungAbschliessenBelastungGuthaben(Integer bestellungId) {
+		try {			
+			Bestellung b = em.find(Bestellung.class, bestellungId);	
+			//status: 3=geliefert
+			b.setStatus(3);	
+	        b.setGeliefertAm(getLokaleZeit());
+		    b.setBezahltAm(getLokaleZeit());
+		    //BelastungGuthaben: 2 = ja, Guthaben belastet
+		    b.setBelastungGuthaben(2);
+		    //status: 4=abgeschlossen
+			b.setStatus(4);	
+			em.merge(b);
+			
+			//Kundenguthaben belasten
+			Kunde k = b.getKunde();
+			BigDecimal preisLieferung = b.getPreistotal();
+			BigDecimal guthaben = k.getGuthaben();
+			k.setGuthaben(guthaben.subtract(preisLieferung));			
+			em.merge(k);
+			return 0;
+		} catch (Exception e) {
+			System.out.println("BestellungVerwaltungEjb.lieferungAbschliessenBelastungGuthaben: "
 					+ "Lieferbestaetigung kann nicht gespeichert werden. Id= " + bestellungId);
 			return -1;
 		}
@@ -284,6 +315,8 @@ public class BestellungVerwaltungEjb implements BestellungVerwaltungInt{
 			Bestellung b = em.find(Bestellung.class, bestellungId);
 			//status: 4=abgeschlossen
 			b.setStatus(4);
+			//BelastungGuthaben: 1 = bar bezahlt
+			b.setBelastungGuthaben(1);
 			b.setBezahltAm(getLokaleZeit());
 			em.merge(b);
 			return 0;

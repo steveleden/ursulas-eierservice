@@ -3,6 +3,7 @@ package web;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -21,6 +22,8 @@ public class BenutzerBean implements Serializable {
 	private Boolean               istAdministrator = false;
 	private Boolean               authorisiert = false;
 	private Integer               kundenId = 0;
+	private BigDecimal            guthaben = new BigDecimal(0.0);
+
 
 	public Integer getId() {
 		return id;
@@ -70,6 +73,13 @@ public class BenutzerBean implements Serializable {
 		this.kundenId = kundenId;
 	}
 	
+	public BigDecimal getGuthaben() {
+		return guthaben;
+	}
+
+	public void setGuthaben(BigDecimal guthaben) {
+		this.guthaben = guthaben;
+	}
 	
 	/* Eventhandler: Pruefen ob Benutzer authorisiert. Wenn nicht -> login.xhtml */
 	public void checkAuthorisiert () throws IOException {

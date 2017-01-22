@@ -16,7 +16,6 @@
 <!-- 			<div style="background-color: #FFFFCC; min-height: 30em"></div> -->
 		</ui:define>				
 		<ui:define name="content">
-			
 			<div >
 				<div id="login-small" class="w3-container w3-center w3-green">
 			        <h:form class="w3-hide-medium w3-hide-large w3-padding-8">
@@ -33,7 +32,7 @@
 <!-- 				Login Grossbild -->
 					<h:form id="frm1" class="w3-container w3-light-green w3-hide-small"
 							style="padding-top: 7px">
-						<h:panelGrid columns="5" styleClass="w3-center" cellpadding="4" border="1">
+						<h:panelGrid columns="5" styleClass="w3-center" cellpadding="4" >
 						    <h:outputLabel value="Benutzer:" styleClass="w3-text-sand"/>		     
 						    <h:inputText id="the_user"
 						    	value = "#{benutzerBean.name}"						    
@@ -108,6 +107,13 @@
 			        	
 			        </h:form>
 			    </div>
+
+			    <div class="w3-container w3-red w3-center">
+					<p class="w3-large"><b>Neu</b></p>
+					<p>Wenn du willst, kannst du mehrere Eierlieferung im Voraus 
+					bezahlen. Dein aktuelles Guthaben wird jeweils angezeigt. Bei Liefererung wird dann dein Guthaben belastet.</p>
+			    </div>			
+
 
 			    <div class="w3-display-container w3-center w3-sand w3-padding-8" style="width: 100%;">
 			        <img src="images/chick.jpg" alt="Chick mit Ei" style="max-width: 100%;"/>

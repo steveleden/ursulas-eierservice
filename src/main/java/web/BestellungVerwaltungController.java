@@ -581,6 +581,17 @@ public class BestellungVerwaltungController implements Serializable {
 		return startBestellungLiefern();
 	}
 	
+	public String lieferungAbschliessenBelastungGuthaben() {
+		
+		Integer resultat = bestellungVerwaltung.lieferungAbschliessenBelastungGuthaben(this.bestellungViewBean.getBestellungView().getBestellung().getId());
+		if (resultat<0) {
+			FacesContext.getCurrentInstance().addMessage(null,
+	                new FacesMessage("Fehler: Lieferung konnte nicht gespeichert werden."));
+			return "";	
+		}
+		return startBestellungLiefern();
+	}
+	
 	public void doNothing() {
 		System.out.println("key...");
 	}
