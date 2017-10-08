@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.Connection=https\://s.leden%40hotmail.com@console.starter-us-west-1.openshift.com
+org.jboss.tools.openshift.DeployProject=UrsulasEierservice
+org.jboss.tools.openshift.PodPath=
+org.jboss.tools.openshift.Service=eierservice@eierservicewildfly
+org.jboss.tools.openshift.SourcePath=${workspace_loc\:/UrsulasEierservice}
