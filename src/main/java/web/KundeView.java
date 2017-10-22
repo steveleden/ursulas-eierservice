@@ -13,6 +13,11 @@ public class KundeView {
 	protected BigDecimal         einzahlung = new BigDecimal(0.0);
 	protected List<BenutzerView> benutzerListe = new ArrayList<BenutzerView>();
 
+	public KundeView() {
+		this.kunde.setGuthaben(new BigDecimal(0.0));
+	}
+	
+
 	
 	/* Setter & Getter */
 	public Boolean getChecked() {
